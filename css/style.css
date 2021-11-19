@@ -1,0 +1,60 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.wrapper {
+}
+.player {
+    position: relative;
+}
+.video {
+    width: 1000px;
+}
+.controllers {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.controller__progress {
+    display: flex;
+    width: 100%;
+    height: 20px;
+    background: grey;
+}
+.progress-bar {
+    width: 0%;
+    background: red;
+    display: inline;
+    position: relative;
+}
+.progress-bar span {
+    position: absolute;
+    top: 4px;
+    left: 10px;
+    width: 100px;
+    font-size: 12px;
+}
+.controller__play-toggle {
+    background: green;
+    width: 40px;
+    height: 20px;
+}
+.controller__volume {
+}
+
+.controller__speed {
+    padding: 0 5px;
+    margin: 0 5px;
+}
+.controller__rewind {
+}
+.rewind {
+    width: 30px;
+    margin: 5px;
+    background: red;
+}
+.rewind {
+}

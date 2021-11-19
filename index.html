@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/null.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <title>Leonard's Video Player</title>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="player">
+            <video class='video' src="video.mp4" preload="metadata" poster="poster.jpg" id='video'></video>
+            <div class="controllers" id="controllers">
+                <button class="controller__play-toggle" id='play'>Play</button>
+                <input class="controller__volume" id='volume' type="range">
+                <div class="controller__progress" id='progressBody'>
+                    <div class="progress-bar" id='progressBar'>
+                        <span id='progressTime'>00:00 / 00:00</span>
+                    </div>
+                </div>
+                <button class="controller__speed" data-speed="1.0">1.0</button>
+                <button class="controller__speed" data-speed="1.5">1.5</button>
+                <button class="controller__speed" data-speed="2.0">2.0</button>
+                <button class="rewind" data-rewind='-10'>‹-10s</button>
+                <button class="rewind" data-rewind='20'>20s-›</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="js/script.js"></script>
+
+</html>
