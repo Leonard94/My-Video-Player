@@ -13,21 +13,21 @@
 <body>
 
     <div class="player">
-        <video class='video' src="video.mp4" preload="metadata" id='video'></video>
+        <video class='video' src="video3.mp4" preload="metadata" id='Video'></video>
 
-        <div class="controllers" id="controllers">
+        <div class="controllers" id="Controllers">
             <!-- Play -->
-            <img src="img/icon__play.svg" alt="play" id='play'>
+            <img src="img/icon__play.svg" alt="Play" id='Play'>
             <!-- Volume -->
-            <div class="controller__volume" id='volume'>
+            <div class="controller__volume">
                 <img src="img/icon__volume.svg" alt="volume">
-                <div class="volume-bar">
-                    <div class="volume-current">50%</div>
+                <div class="volume-bar" id='volume-body'>
+                    <div class="volume-current" id="volume-bar">100</div>
                 </div>
             </div>
             <!-- Speed -->
             <div class="controller__speed">
-                <div class="speed__current" id='speedCurrent'>1.0x</div>
+                <div class="speed__current" id='speed-current'>1.0x</div>
                 <div class="speed__drop-down">
                     <div class="speed" data-speed="3.0">3.0x</div>
                     <div class="speed" data-speed="2.0">2.0x</div>
@@ -36,12 +36,12 @@
                 </div>
             </div>
             <!-- Progress -->
-            <div class="controller__progress-body" id='progressBody'>
-                <div class="progress-bar" id='progressBar'>
+            <div class="controller__progress-body" id='progress-body'>
+                <div class="progress-bar" id='progress-bar'>
                     <div class="time">
-                        <span id='progressTime'>00:00</span>
+                        <span id='time-progress'>00:00</span>
                         <span>/</span>
-                        <span id="durationTime">00:00</span>
+                        <span id="time-duration">00:00</span>
                     </div>
                 </div>
             </div>
