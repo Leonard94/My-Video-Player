@@ -12,24 +12,49 @@
 
 <body>
 
-    <div class="wrapper">
-        <div class="player">
-            <video class='video' src="video.mp4" preload="metadata" poster="poster.jpg" id='video'></video>
-            <div class="controllers" id="controllers">
-                <button class="controller__play-toggle" id='play'>Play</button>
-                <input class="controller__volume" id='volume' type="range">
-                <div class="controller__progress" id='progressBody'>
-                    <div class="progress-bar" id='progressBar'>
-                        <span id='progressTime'>00:00 / 00:00</span>
+    <div class="player">
+        <video class='video' src="video.mp4" preload="metadata" id='video'></video>
+
+        <div class="controllers" id="controllers">
+            <!-- Play -->
+            <img src="img/icon__play.svg" alt="play" id='play'>
+            <!-- Volume -->
+            <div class="controller__volume" id='volume'>
+                <img src="img/icon__volume.svg" alt="volume">
+                <div class="volume-bar">
+                    <div class="volume-current">50%</div>
+                </div>
+            </div>
+            <!-- speed -->
+            <div class="controller__speed">
+                <div class="current__speed">1.0x</div>
+                <div class="speed__drop-down">
+                    <div class="speed" data-speed="3.0">3.0x</div>
+                    <div class="speed speed-active" data-speed="2.0">2.0x</div>
+                    <div class="speed" data-speed="1.5">1.5x</div>
+                    <div class="speed" data-speed="1.0">1.0x</div>
+                </div>
+            </div>
+            <!-- speed скрыто -->
+
+            <!-- Progress -->
+            <div class="controller__progress-body" id='progressBody'>
+                <div class="progress-bar" id='progressBar'>
+                    <div class="time">
+                        <span id='progressTime'>00:00</span>
+                        <span>/</span>
+                        <span id="durationTime">00:00</span>
                     </div>
                 </div>
-                <button class="controller__speed" data-speed="1.0">1.0</button>
-                <button class="controller__speed" data-speed="1.5">1.5</button>
-                <button class="controller__speed" data-speed="2.0">2.0</button>
-                <button class="rewind" data-rewind='-10'>‹-10s</button>
-                <button class="rewind" data-rewind='20'>20s-›</button>
             </div>
+
+            <!-- Skip -->
+            <!-- <div class="rewind" data-rewind='-10'><img class="rewind-img" src="img/icon__prev.svg" alt="prev"></div>
+                <div class="rewind" data-rewind='20'><img class="rewind-img" src="img/icon__next.svg" alt="next"></div> -->
+            <img class="rewind" data-rewind='-10' src="img/icon__prev.svg" alt="prev">
+            <img class="rewind" data-rewind='20' src="img/icon__next.svg" alt="next">
         </div>
+
     </div>
 
 </body>
