@@ -7,6 +7,7 @@ const progressTime = document.getElementById('progressTime')
 
 // video.currentTime - время на видео
 // video.duration - продолжительность видео
+// video.playbackRate - продолжительность видео
 // video.play() - запустить видео
 // video.pause() - остановить видео
 // video.paused - видео на паузе (true\false)
@@ -15,7 +16,9 @@ const progressTime = document.getElementById('progressTime')
 
 controllers.addEventListener('click', (e) => {
     // Pressed btn speed
-    if (e.target.classList.contains('controller__speed')) {}
+    if (e.target.classList.contains('controller__speed')) {
+        video.playbackRate = e.target.getAttribute('data-speed')
+    }
 
     // Pressed btn rewind
     if (e.target.classList.contains('rewind')) video.currentTime += Number(e.target.getAttribute('data-rewind'))
@@ -70,7 +73,7 @@ video.addEventListener('timeupdate', updateProgress)
 
 
 // JavaScript
-// todo прикрутить функционал ускорения видео
+
 // todo UpdateTime (Video Duration) обновляется каждый раз наравне с текущим временем
 // todo обновлять продолжительность видео после загрузки всех метаданных
 // todo можно ли с помощью JS сделать обложку видео на основе любого или определенного кадра? После получения метаданных
@@ -83,3 +86,6 @@ video.addEventListener('timeupdate', updateProgress)
 // При наведении на скорость воспроизведения, предоставить выбор скорости видео
 // Добавить нормальные иконки для всех кнопок
 // Сделать адаптив
+
+// Completed
+// прикрутить функционал ускорения видео
