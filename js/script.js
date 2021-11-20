@@ -36,6 +36,7 @@ controllers.addEventListener('click', (e) => {
     if (e.target.classList.contains('rewind')) video.currentTime += Number(e.target.getAttribute('data-rewind'))
 })
 
+
 // Start or Stop video
 const togglePlay = () => {
     let method = video.paused ? 'play' : 'pause'
@@ -75,6 +76,18 @@ progress.addEventListener('click', (e) => {
     video.currentTime = targetProgress * video.duration / 100
 })
 
+// Обработчик нажатий на клавиатуре
+window.addEventListener('keydown', (e) => {
+    // Пробел
+    if (e.keyCode === 32) togglePlay()
+
+    // Стрелка вправо
+    if (e.keyCode === 39) video.currentTime += 20
+
+    // Стрелка влево
+    if (e.keyCode === 37) video.currentTime += -10
+})
+
 
 play.addEventListener('click', togglePlay)
 video.addEventListener('click', togglePlay)
@@ -87,7 +100,6 @@ video.addEventListener('loadedmetadata', () => timeDuration.textContent = ` ${up
 
 // JavaScript
 // todo сделать возможность изменять громкость звука
-// todo перемотка при нажатии на стрелку клавиатуры
 // todo добавить возможность открывать на весь экран?
 // todo можно ли с помощью JS сделать обложку видео на основе любого или определенного кадра? После получения метаданных
 
@@ -96,6 +108,8 @@ video.addEventListener('loadedmetadata', () => timeDuration.textContent = ` ${up
 
 
 // Completed JS
+// Пробел для пуск \ стоп
+// Перемотка при нажатии на стрелку клавиатуры
 // При выборе скорости воспроизведения изменять класс на speed-active у drop-down. И изменять current speed
 // UpdateTime (Video Duration) обновляется каждый раз наравне с текущим временем. Исправить
 // Обновлять продолжительность видео после загрузки всех метаданных
