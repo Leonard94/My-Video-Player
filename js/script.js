@@ -20,24 +20,6 @@ const timeDuration = document.getElementById('time-duration')
 // video.paused - видео на паузе (true\false)
 // loadedmetadata: срабатывает после загрузки метаданных мультимедиа (длительность воспроизведения, размеры видео и т.д.)
 
-controllers.addEventListener('click', (e) => {
-    // Pressed speed
-    if (e.target.classList.contains('speed')) {
-        // убираем класс speed-active у всех speed
-        speeds.forEach((speed) => speed.classList.remove('speed-active'))
-
-        // Выставляем скорость видео, указанную в атрибуте data-speed
-        video.playbackRate = e.target.getAttribute('data-speed')
-        e.target.classList.add('speed-active')
-
-        // Изменяем надпись скорости на controller
-        speedCurrent.textContent = e.target.textContent
-    }
-
-    // Pressed rewind
-    if (e.target.classList.contains('rewind')) video.currentTime += Number(e.target.getAttribute('data-rewind'))
-})
-
 
 // Start or Stop video
 const togglePlay = () => {
@@ -45,22 +27,22 @@ const togglePlay = () => {
     video[method]()
 }
 
-
 // Смена иконки после нажатия на toggle
 const updateIcon = () => {
     let icon = video.paused ? 'play' : 'pause'
     play.src = `/img/icon__${icon}.svg`
 }
 
-
 const updateTime = (time) => {
     time = Math.floor(time)
-    let hours = Math.floor(time / 60 / 60)
-    let minutes = Math.floor(time / 60) - (hours * 60)
-    let seconds = time % 60
+    // padStart() - установка минимальной длины строки.
+    // Для формта отображения времени 00:00:00, а не 0:0:0
+    let hours = (Math.floor(time / 60 / 60)).toString().padStart(2, '0') //
+    let minutes = (Math.floor(time / 60) - (hours * 60)).toString().padStart(2, '0')
+    let seconds = (time % 60).toString().padStart(2, '0')
+    if(hours != '00') return `${hours}:${minutes}:${seconds}` // Показывать и часы
     return `${minutes}:${seconds}`
 }
-
 
 const updateProgress = () => {
     let currentProgress = (video.currentTime / video.duration) * 100
@@ -69,6 +51,7 @@ const updateProgress = () => {
     // update current time and total(duration) time
     timeProgress.textContent = `${updateTime(video.currentTime)}`
 }
+
 
 // При нажатии на volume
 volume.addEventListener('click', (e) => {
@@ -100,6 +83,24 @@ document.addEventListener('keydown', (e) => {
 
     // Стрелка влево
     if (e.keyCode === 37) video.currentTime += -10
+})
+
+controllers.addEventListener('click', (e) => {
+    // Pressed speed
+    if (e.target.classList.contains('speed')) {
+        // убираем класс speed-active у всех speed
+        speeds.forEach((speed) => speed.classList.remove('speed-active'))
+
+        // Выставляем скорость видео, указанную в атрибуте data-speed
+        video.playbackRate = e.target.getAttribute('data-speed')
+        e.target.classList.add('speed-active')
+
+        // Изменяем надпись скорости на controller
+        speedCurrent.textContent = e.target.textContent
+    }
+
+    // Pressed rewind
+    if (e.target.classList.contains('rewind')) video.currentTime += Number(e.target.getAttribute('data-rewind'))
 })
 
 
