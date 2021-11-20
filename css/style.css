@@ -35,8 +35,11 @@ body {
 #play:hover {
     transform: scale(1.1);
 }
+img {
+    cursor: pointer;
+}
 
-/* SPEED SPEED SPEED*/
+/* SPEED*/
 .controller__speed {
     position: relative;
     color: white;
@@ -46,7 +49,7 @@ body {
     justify-content: center;
     cursor: pointer;
 }
-.current__speed {
+.speed__current{
     font-weight: 700;
     font-size: 12px;
     cursor: pointer;
@@ -83,13 +86,13 @@ body {
 }
 .speed:hover {
     color: #252525;
-    background: white;
+    background: #717171;
 }
 .controller__speed:hover .speed__drop-down {
     display: block;
 }
 
-/* PROGRESS PROGRESS PROGRESS*/
+/* PROGRESS*/
 .controller__progress-body {
     display: flex;
     width: 587px;
@@ -121,7 +124,7 @@ body {
     color: #717171;
 }
 
-/* REWIND REWIND REWIND */
+/* REWIND */
 .rewind:hover {
     transform: scale(1.1);
 }
@@ -129,7 +132,7 @@ body {
     transform: scale(0.9);
 }
 
-/* VOLUME VOLUME VOLUME */
+/* VOLUME */
 .controller__volume {
     height: 40px;
     display: flex;
@@ -168,7 +171,4 @@ body {
     display: block;
 }
 
-/* Общее */
-img {
-    cursor: pointer;
-}
+

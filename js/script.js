@@ -1,6 +1,8 @@
 const video = document.getElementById('video')
 const controllers = document.getElementById('controllers')
 const play = document.getElementById('play')
+const speeds = document.querySelectorAll('.speed')
+const speedCurrent = document.getElementById('speedCurrent')
 const progress = document.getElementById('progressBody')
 const progressBar = document.getElementById('progressBar')
 const timeProgress = document.getElementById('progressTime')
@@ -18,12 +20,21 @@ const timeDuration = document.getElementById('durationTime')
 controllers.addEventListener('click', (e) => {
 
     // Pressed speed
-    if (e.target.classList.contains('speed')) video.playbackRate = e.target.getAttribute('data-speed')
+    if (e.target.classList.contains('speed')) {
+        // убираем класс speed-active у всех speed
+        speeds.forEach((speed) => speed.classList.remove('speed-active'))
+
+        // Выставляем скорость видео, указанную в атрибуте data-speed
+        video.playbackRate = e.target.getAttribute('data-speed')
+        e.target.classList.add('speed-active')
+
+        // Изменяем надпись скорости на controller
+        speedCurrent.textContent = e.target.textContent
+    }
 
     // Pressed rewind
     if (e.target.classList.contains('rewind')) video.currentTime += Number(e.target.getAttribute('data-rewind'))
 })
-
 
 // Start or Stop video
 const togglePlay = () => {
@@ -56,6 +67,7 @@ const updateProgress = () => {
     progressTime.textContent = `${updateTime(video.currentTime)}`
 }
 
+
 // При нажатии на progressBar
 progress.addEventListener('click', (e) => {
     const targetProgress = (e.offsetX / progress.offsetWidth) * 100
@@ -69,21 +81,22 @@ video.addEventListener('click', togglePlay)
 video.addEventListener('pause', updateIcon)
 video.addEventListener('play', updateIcon)
 video.addEventListener('timeupdate', updateProgress)
+// Когда получили метаданные
 video.addEventListener('loadedmetadata', () => timeDuration.textContent = ` ${updateTime(video.duration)}`)
 
 
 // JavaScript
-// todo при выборе скорости воспроизведения изменять класс на speed-active у drop-down. И изменять current speed
 // todo сделать возможность изменять громкость звука
 // todo перемотка при нажатии на стрелку клавиатуры
 // todo добавить возможность открывать на весь экран?
 // todo можно ли с помощью JS сделать обложку видео на основе любого или определенного кадра? После получения метаданных
 
-
 // CSS
 // todo Сделать адаптив?
 
+
 // Completed JS
+// При выборе скорости воспроизведения изменять класс на speed-active у drop-down. И изменять current speed
 // UpdateTime (Video Duration) обновляется каждый раз наравне с текущим временем. Исправить
 // Обновлять продолжительность видео после загрузки всех метаданных
 // Прикрутить функционал ускорения видео
