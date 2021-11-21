@@ -40,7 +40,7 @@ const updateTime = (time) => {
     let hours = (Math.floor(time / 60 / 60)).toString().padStart(2, '0') //
     let minutes = (Math.floor(time / 60) - (hours * 60)).toString().padStart(2, '0')
     let seconds = (time % 60).toString().padStart(2, '0')
-    if(hours != '00') return `${hours}:${minutes}:${seconds}` // Показывать и часы
+    if(hours != '00') return `${hours}:${minutes}:${seconds}` // Показывать часы, если не 0
     return `${minutes}:${seconds}`
 }
 
