@@ -169,6 +169,7 @@ img {
     justify-content: space-between;
     align-items: end;
     line-height: 140%;
+    transition: all .3s ease;
 }
 .controller__volume:hover .volume-bar {
     display: block;

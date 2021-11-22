@@ -30,7 +30,7 @@ const togglePlay = () => {
 // Смена иконки после нажатия на toggle
 const updateIcon = () => {
     let icon = video.paused ? 'play' : 'pause'
-    play.src = `/img/icon__${icon}.svg`
+    play.src = `img/icon__${icon}.svg`
 }
 
 const updateTime = (time) => {
